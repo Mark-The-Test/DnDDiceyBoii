@@ -1,5 +1,7 @@
 package com.stockman.dnddiceyboii;
 
+import java.util.Random;
+
 public class Dice {
 
     public String mName;
@@ -34,6 +36,12 @@ public class Dice {
 
     public void setSide(Integer side) {
         this.side = side;
+    }
+    public int rollDice(int maxRoll){
+        int rollValue;
+        Random random = new Random();
+        rollValue=random.nextInt(maxRoll);
+        return rollValue;
     }
 
 }

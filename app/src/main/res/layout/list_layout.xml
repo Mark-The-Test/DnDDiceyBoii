@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="TEST"
+            android:text="test"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="280dp"
             android:textStyle="bold"

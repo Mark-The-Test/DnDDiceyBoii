@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.Gravity;
@@ -68,25 +69,26 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new RecyclerViewAdaapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Roll(diceBag.get(position));
+               // Roll(diceBag.get(position));
+                displayRoll(diceBag.get(position).rollDice(diceBag.get(position).getMaxRoll()));
             }
         });
 
-//           mDiceName = findViewById(R.id.rcDice); //recyclerviewset up
+          mDiceName = findViewById(R.id.rcDice); //recyclerviewset up
 //        mDiceName.setText(diceBag.get(position).getName());
 
     }
 
-    public void Roll(Dice dice){
-        Random random= new Random();
-        rollValue = random.nextInt(dice.getMaxRoll());
-      rollValue= rollValue+1;
-
+    public void displayRoll(int rollValue){
       String roll=" ";
-      roll= String.valueOf(rollValue);
-      mDiceRoll.setText(roll);
+      roll= String.valueOf(rollValue+1);
+      //mDiceRoll.setText(roll);
+      Resources res = getResources();
+      String[] sides = res.getStringArray(R.array.roll);
+        mDiceRoll.setText(sides[rollValue]);
+     // mDiceName.setText(sides[rollValue]);
 //      mDiceName.setText(roll);
-      Toast toast = Toast.makeText(this, "Rolling "+dice.getName(),
+      Toast toast = Toast.makeText(this, "Rolling "+diceBag.get(position).getName(),
               Toast.LENGTH_SHORT);
       toast.show();
 

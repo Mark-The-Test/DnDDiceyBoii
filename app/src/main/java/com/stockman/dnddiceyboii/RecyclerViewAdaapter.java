@@ -11,11 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RecyclerViewAdaapter extends RecyclerView.Adapter<RecyclerViewAdaapter.ViewHolder>{
     ArrayList<Dice> mMyModels;
     Context mContext;
     private OnItemClickListener mListener;
+
 
     public interface OnItemClickListener{
         void onItemClick(int position);
@@ -43,8 +45,7 @@ public class RecyclerViewAdaapter extends RecyclerView.Adapter<RecyclerViewAdaap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.icon.setImageResource(mMyModels.get(position).getSide());
         holder.nmae.setText(mMyModels.get(position).getName());
-        //holder.mDiceName.setText();
-
+        holder.mDiceName.setText("???");
     }
 
     @Override
@@ -71,6 +72,8 @@ public class RecyclerViewAdaapter extends RecyclerView.Adapter<RecyclerViewAdaap
                         if(position != RecyclerView.NO_POSITION){
                             listener.onItemClick(position);
                         }
+//                        mDiceName.setText(mMyModels.get(position)
+//                                .rollDice(mMyModels.get(position).maxRoll));
                     }
                 }
             });

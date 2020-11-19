@@ -30,7 +30,7 @@
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="Roll Value"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
